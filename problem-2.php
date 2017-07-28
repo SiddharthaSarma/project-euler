@@ -11,22 +11,16 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 */
 
 
-
 $fibonacciArr = [1, 2];
-
 $total = 0;
 
 do {
-	
-	$length = count($fibonacciArr);
-	
-	array_push($fibonacciArr, ($fibonacciArr[$length -1 ] + $fibonacciArr[$length -2]));
-}
+    $length = count($fibonacciArr);
+    array_push($fibonacciArr, ($fibonacciArr[$length - 1] + $fibonacciArr[$length - 2]));
+} while ($fibonacciArr[count($fibonacciArr) - 1] + $fibonacciArr[count($fibonacciArr) - 2] < 4000000);
 
-while($fibonacciArr[count($fibonacciArr) -1 ] + $fibonacciArr[count($fibonacciArr) - 2] < 4000000);
-
-array_walk($fibonacciArr, function($value) use(&$total) {
-    if($value % 2 === 0) {
+array_walk($fibonacciArr, function ($value) use (&$total) {
+    if ($value % 2 === 0) {
         $total += $value;
     }
 });
